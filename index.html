@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacy's Portfolio</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="header">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <img src="DSC_0233-Recovered.jpg" alt="Logo" class="logo">
+            <ul class="nav-links">
+                <!-- Navigation Links -->
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Hero Section Content -->
+        <div class="header-content">
+            <h1>Hello, I'm <span class="highlight">Stacy</span></h1>
+            <p>A passionate <span class="highlight">Software Engineer</span> from Kenya</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <!-- About Image -->
+                <div class="about-image">
+                    <img src="Col 1.jpg" alt="About Stacy">
+                </div>
+                <!-- About Text -->
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>
+                        As a passionate and detail-oriented software engineer, I specialize in creating innovative solutions
+                        that blend creativity with functionality. My journey in technology has been fueled by a love for solving
+                        complex problems and delivering impactful user experiences.
+                    </p>
+                    <!-- Tab Section -->
+                    <div class="tabs">
+                        <div class="tab-links">
+                            <!-- Tab Buttons -->
+                            <button onclick="openTab('skills')" class="active-tab">Skills</button>
+                            <button onclick="openTab('experience')">Experience</button>
+                            <button onclick="openTab('education')">Education</button>
+                        </div>
+                        <!-- Skills Tab Content -->
+                        <div class="tab-content" id="skills">
+                            <ul>
+                                <li><strong>Programming:</strong> HTML, CSS, JavaScript, Python</li>
+                                <li><strong>Version Control:</strong> Git, GitHub</li>
+                            </ul>
+                        </div>
+                        <!-- Experience Tab Content -->
+                        <div class="tab-content" id="experience" style="display: none;">
+                            <ul>
+                                <li><strong>Frameworks & Tools:</strong> Bootstrap, MySQL</li>
+                                <li><strong>Design:</strong> Canva, Figma</li>
+                            </ul>
+                        </div>
+                        <!-- Education Tab Content -->
+                        <div class="tab-content" id="education" style="display: none;">
+                            <ul>
+                                <li><strong>Degree:</strong> BSc in Software Engineering</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript to Handle Tab Navigation -->
+    <script>
+        // Function to Switch Between Tabs
+        function openTab(tabId) {
+            // Select all tabs and buttons
+            const tabs = document.querySelectorAll(".tab-content");
+            const buttons = document.querySelectorAll(".tab-links button");
+
+            // Hide all tab contents and remove active class from buttons
+            tabs.forEach(tab => tab.style.display = "none");
+            buttons.forEach(button => button.classList.remove("active-tab"));
+
+            // Display selected tab and set button as active
+            document.getElementById(tabId).style.display = "block";
+            document.querySelector(`.tab-links button[onclick="openTab('${tabId}')"]`).classList.add("active-tab");
+        }
+
+        // Open default tab on page load
+        openTab("skills");
+    </script>
+</body>
+</html>
